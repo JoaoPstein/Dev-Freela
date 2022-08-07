@@ -1,8 +1,16 @@
 # Dev-Freela
-> Aplicação para estudo do .NET CORE, Arquitetura limpa, 
-> Persistência com Entity Framework Core, CQRS, Padrão Repository,
-> Validação de APIs, Autenticação e Autorização com JWT,
-> Testes Unitários com xUni.
+> Aplicação com o voltado para clientes e usuários procurando um trabalho freelancer.
+
+> Aplicação para estudo dos seguintes items listados abaixo:
+> - Persistência com Entity Framework Core
+> - Autenticação e Autorização com JWT
+> - Testes Unitários com xUnit
+> - Arquitetura limpa
+> - Padrão Repository
+> - Validação de APIs
+> - Testes integrados
+> - .NET CORE
+> - CQRS
 
 > Repositório [_aqui_]().
 
