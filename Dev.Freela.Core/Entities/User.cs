@@ -1,5 +1,8 @@
-﻿namespace Dev.Freela.Core.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Dev.Freela.Core.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class User : BaseEntity
     {
         public User(string name, string email, DateTime birthdate, string password, string role)

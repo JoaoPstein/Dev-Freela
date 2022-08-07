@@ -1,5 +1,8 @@
-﻿namespace Dev.Freela.Core.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Dev.Freela.Core.Entities
 {
+    [ExcludeFromCodeCoverage]
     public abstract class BaseEntity
     {
         protected BaseEntity() { }

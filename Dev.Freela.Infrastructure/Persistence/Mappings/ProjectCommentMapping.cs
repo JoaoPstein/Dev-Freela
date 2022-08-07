@@ -1,9 +1,11 @@
 ﻿using Dev.Freela.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Infrastructure.Persistence.Mappings
 {
+    [ExcludeFromCodeCoverage]
     public class ProjectCommentMapping : IEntityTypeConfiguration<ProjectComment>
     {
         public void Configure(EntityTypeBuilder<ProjectComment> builder)

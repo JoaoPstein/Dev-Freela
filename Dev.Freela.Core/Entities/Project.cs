@@ -1,7 +1,9 @@
 ﻿using Dev.Freela.Core.Enums;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Core.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class Project : BaseEntity
     {
         public Project(string title, string description, int idClient, int idFreelancer, decimal totalCost)

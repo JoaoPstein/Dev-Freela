@@ -5,11 +5,13 @@ using Dev.Freela.Application.InputModels.Projects;
 using Dev.Freela.Application.Queries.GetAllProjects;
 using Dev.Freela.Application.Queries.GetProjectById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dev.Freela.Api.Controllers
 {
     [Route("api/projects")]
+    [Authorize]
     public class ProjectsController : Controller
     {
         private readonly IMediator _mediator;
@@ -20,6 +22,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "client, freelancer")]   
         public async Task<IActionResult> Get(string query)
         {
             var getAllProject = new GetAllProjectsQuery(query);
@@ -30,6 +33,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "client, freelancer")]
         public IActionResult GetById(int id)
         {
             var query = new GetProjectByIdQuery(id);
@@ -43,6 +47,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
             var id = await _mediator.Send(command);
@@ -51,6 +56,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand updateProject)
         {
             if (updateProject is null)
@@ -62,6 +68,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "client")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjectCommand(id);
@@ -73,6 +80,7 @@ namespace Dev.Freela.Api.Controllers
 
         [HttpPost]
         [Route("/createComment")]
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> CreateComment([FromBody] CreateCommentCommand command)
         {
             var id = await _mediator.Send(command);

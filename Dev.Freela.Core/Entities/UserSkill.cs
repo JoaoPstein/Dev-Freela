@@ -1,5 +1,8 @@
-﻿namespace Dev.Freela.Core.Entities
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Dev.Freela.Core.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class UserSkill : BaseEntity
     {
         public UserSkill(int idUser, int idSkill)
