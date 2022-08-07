@@ -36,10 +36,10 @@ Liste os recursos prontos até o momento:
 
 Camadas
 ```sh
-├── 1.0 - Ambevtech.Sales.Account.Serasa  # 
-├── 2.0 - Ambevtech.Sales.Account.Serasa.Contracts # 
-├── 3.0 - Ambevtech.Sales.Account.Serasa.Domain # Camada responsável pela nossa regra de negócio
-├── 4.0 - Ambevtech.Sales.Account.Serasa.Tests # Camada responsável pelos testes unitários e integrados 
+├── 1.0 - # 
+├── 2.0 - # 
+├── 3.0 - # Camada responsável pela nossa regra de negócio
+├── 4.0 - # Camada responsável pelos testes unitários e integrados 
 ```
 
 ## Configuracao 
