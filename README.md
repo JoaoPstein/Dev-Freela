@@ -26,7 +26,20 @@
 - .NET Framework/SDK - 6
 
 ## Bibliocatecas externas
-- Microsoft.Extensions.DependencyInjection.Abstraction - 3.1.23
+- MediatR.Extensions.Microsoft.DependencyInjection 
+- Microsoft.AspNetCore.Authentication.JwtBearer 
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.Tools
+- Microsoft.EntityFrameworkCore
+- FluentValidation.AspNetCore
+- Swashbuckle.AspNetCore
+- System.Collections
+- FluentValidation
+- System.Runtime
+- MediatoR
+- Dapper
+
 
 ## Features
 Liste os recursos prontos até o momento:
@@ -36,10 +49,10 @@ Liste os recursos prontos até o momento:
 
 Camadas
 ```sh
-├── 1.0 - # 
-├── 2.0 - # 
-├── 3.0 - # Camada responsável pela nossa regra de negócio
-├── 4.0 - # Camada responsável pelos testes unitários e integrados 
+├── 1.0 - Dev.Freela.Api # 
+├── 2.0 - Dev.Freela.Application # 
+├── 3.0 - Dev.Freela.Core #
+├── 4.0 - Dev.Freela.Infrastructure #
 ```
 
 ## Configuracao 
