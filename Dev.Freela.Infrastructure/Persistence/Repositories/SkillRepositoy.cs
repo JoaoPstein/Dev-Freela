@@ -1,6 +1,5 @@
-﻿using Dev.Freela.Core.Entities;
+﻿using Dev.Freela.Core.DTOs;
 using Dev.Freela.Core.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Dev.Freela.Infrastructure.Persistence.Repositories
 {
@@ -13,9 +12,16 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<Skill>> GetAll()
+        public async Task<List<SkillDTO>> GetAll()
         {
-            return await _dbContext.Skills.ToListAsync();
+            throw new NotImplementedException();
+           //var skills = _dbContext.Skills;
+
+           // var skillsViewModel = skills
+           //     //.Select(s => new SkillViewModel(s.Id, s.Description))
+           //     .ToList();
+
+           // return skillsViewModel;
         }
     }
 }

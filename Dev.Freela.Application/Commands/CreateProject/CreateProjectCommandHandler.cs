@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Dev.Freela.Application.Commands.CreateProject
 {
-    internal class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
+    public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {
         private readonly IProjectRepository _projectRepository; 
 

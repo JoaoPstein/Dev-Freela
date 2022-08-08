@@ -1,4 +1,4 @@
-﻿namespace Dev.Freela.Application.Queries.GetAllSkills
+﻿namespace Dev.Freela.Application.Queries.Skills
 {
     public class SkillViewModel
     {

@@ -2,8 +2,8 @@
 using Dev.Freela.Application.Commands.DeleteProject;
 using Dev.Freela.Application.Commands.UpdateProject;
 using Dev.Freela.Application.InputModels.Projects;
-using Dev.Freela.Application.Queries.GetAllProjects;
 using Dev.Freela.Application.Queries.GetProjectById;
+using Dev.Freela.Application.Queries.Projects;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
