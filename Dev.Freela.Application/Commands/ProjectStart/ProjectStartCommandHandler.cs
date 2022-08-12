@@ -14,11 +14,11 @@ namespace Dev.Freela.Application.Commands.ProjectStart
 
         public async Task<Unit> Handle(ProjectStartCommand request, CancellationToken cancellationToken)
         {
-            var project = await _projectRepository.GetById(request.Id);
+            var project = await _projectRepository.GetByIdAsync(request.Id);
 
             project.Start();
 
-            await _projectRepository.SaveChanges();
+            await _projectRepository.SaveChangesAsync();
 
             return Unit.Value;
         }

@@ -4,6 +4,6 @@ namespace Dev.Freela.Core.Repositories
 {
     public interface IProjectCommentRepository
     {
-        Task CreateComment(ProjectComment projectComment);
+        Task CreateCommentAsync(ProjectComment projectComment);
     }
 }

@@ -14,7 +14,7 @@ namespace Dev.Freela.Application.Queries.Skills
 
         public async Task<List<SkillDTO>> Handle(GetAllSkillQuery request, CancellationToken cancellationToken)
         {
-            return await _skillRepository.GetAll();
+            return await _skillRepository.GetAllAsync();
         }
     }
 }

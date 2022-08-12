@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Dev.Freela.Application.Commands.CreateUsers
 {
-    internal class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
     {
         private readonly IUserRepository _userRepository;
         private readonly IAuthService _authService;
@@ -22,7 +22,7 @@ namespace Dev.Freela.Application.Commands.CreateUsers
 
             var user = new User(request.FullName, request.Email, request.BirthDate, passwordHash, request.Role);
 
-            await _userRepository.Create(user);
+            await _userRepository.CreateAsync(user);
 
             return user.Id;
         }

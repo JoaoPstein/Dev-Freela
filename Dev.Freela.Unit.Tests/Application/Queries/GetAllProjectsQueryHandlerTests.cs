@@ -30,7 +30,7 @@ namespace Dev.Freela.Unit.Tests.Application.Queries
             projects.Add(projectB);
             projects.Add(projectC);
 
-            _projectRepositoryMock.Setup(x => x.GetAll()).Returns(Task.FromResult(projects));
+            _projectRepositoryMock.Setup(x => x.GetAllAsync()).Returns(Task.FromResult(projects));
 
             var getAllProjectsQuery = new GetAllProjectsQuery("");
             var getAllProjectsQueryHandler = new GetAllProjectQueryHandler(_projectRepositoryMock.Object);
@@ -43,7 +43,7 @@ namespace Dev.Freela.Unit.Tests.Application.Queries
             Assert.NotEmpty(projects);
             Assert.Equal(projects.Count, projectViewModelResult.Count);
 
-            _projectRepositoryMock.Verify(x => x.GetAll().Result, Times.Once);
+            _projectRepositoryMock.Verify(x => x.GetAllAsync().Result, Times.Once);
         }
     }
 }

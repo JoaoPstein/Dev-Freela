@@ -4,9 +4,10 @@ using MediatR;
 
 namespace Dev.Freela.Application.Commands.CreateComment
 {
-    internal class CreateCommentHandler : IRequestHandler<CreateCommentCommand, Unit>
+    public class CreateCommentHandler : IRequestHandler<CreateCommentCommand, Unit>
     {
         private readonly IProjectCommentRepository _projectComment;
+
         public CreateCommentHandler(IProjectCommentRepository projectComment)
         {
             _projectComment = projectComment;
@@ -16,7 +17,7 @@ namespace Dev.Freela.Application.Commands.CreateComment
         {
             var comment = new ProjectComment(request.Content, request.IdProject, request.IdUser);
 
-            await _projectComment.CreateComment(comment);
+            await _projectComment.CreateCommentAsync(comment);
 
             return Unit.Value;
         }

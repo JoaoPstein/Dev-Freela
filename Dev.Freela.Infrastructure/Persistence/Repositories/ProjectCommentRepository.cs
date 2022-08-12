@@ -11,7 +11,8 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task CreateComment(ProjectComment projectComment)
+
+        public async Task CreateCommentAsync(ProjectComment projectComment)
         {
             await _dbContext.AddAsync(projectComment);
             await _dbContext.SaveChangesAsync();

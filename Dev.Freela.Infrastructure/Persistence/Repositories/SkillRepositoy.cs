@@ -12,16 +12,16 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<SkillDTO>> GetAll()
+        public async Task<List<SkillDTO>> GetAllAsync()
         {
             throw new NotImplementedException();
-           //var skills = _dbContext.Skills;
+            //var skills = _dbContext.Skills;
 
-           // var skillsViewModel = skills
-           //     //.Select(s => new SkillViewModel(s.Id, s.Description))
-           //     .ToList();
+            //var skillsViewModel = skills
+            //    //.Select(s => new SkillViewModel(s.Id, s.Description))
+            //    .ToList();
 
-           // return skillsViewModel;
+            //return skillsViewModel;
         }
     }
 }

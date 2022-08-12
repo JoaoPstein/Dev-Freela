@@ -4,7 +4,7 @@ namespace Dev.Freela.Core.Repositories
 {
     public interface IUserRepository
     {
-        Task Create(User user);
+        Task CreateAsync(User user);
         Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash);
     }
 }

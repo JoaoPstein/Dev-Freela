@@ -12,12 +12,12 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             _devFreelaDbContext = devFreelaDbContext;
         }
 
-        public async Task<List<Project>> GetAll()
+        public async Task<List<Project>> GetAllAsync()
         {
             return await _devFreelaDbContext.Projects.ToListAsync();
         }
 
-        public async Task<Project> GetById(int id)
+        public async Task<Project> GetByIdAsync(int id)
         {
             return await _devFreelaDbContext.Projects
               .Include(x => x.Client)
@@ -25,13 +25,13 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
               .SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task Create(Project project)
+        public async Task CreateAsync(Project project)
         {
             await _devFreelaDbContext.Projects.AddAsync(project);
             await _devFreelaDbContext.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             var project = _devFreelaDbContext.Projects.SingleOrDefault(x => x.Id == id);
 
@@ -39,7 +39,7 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             await _devFreelaDbContext.SaveChangesAsync();
         }
 
-        public async Task SaveChanges()
+        public async Task SaveChangesAsync()
         {
             await _devFreelaDbContext.SaveChangesAsync();
         }

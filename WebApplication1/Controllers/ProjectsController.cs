@@ -1,5 +1,6 @@
 ﻿using Dev.Freela.Application.Commands.CreateComment;
 using Dev.Freela.Application.Commands.DeleteProject;
+using Dev.Freela.Application.Commands.ProjectFinish;
 using Dev.Freela.Application.Commands.UpdateProject;
 using Dev.Freela.Application.InputModels.Projects;
 using Dev.Freela.Application.Queries.GetProjectById;
@@ -33,7 +34,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "client, freelancer")]
+        [Authorize(Roles = "Client, Freelancer")]
         public IActionResult GetById(int id)
         {
             var query = new GetProjectByIdQuery(id);
@@ -47,7 +48,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "client")]
+        [Authorize(Roles = "Client")]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
             var id = await _mediator.Send(command);
@@ -56,7 +57,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "client")]
+        [Authorize(Roles = "Client")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand updateProject)
         {
             if (updateProject is null)
@@ -68,7 +69,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "client")]
+        [Authorize(Roles = "Client")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProjectCommand(id);
@@ -86,6 +87,22 @@ namespace Dev.Freela.Api.Controllers
             var id = await _mediator.Send(command);
 
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
+        }
+
+        [HttpPut("{id}/finish")]
+        [Authorize(Roles = "client")]
+        public async Task<IActionResult> Finish(int id, [FromBody] ProjectFinishCommand command)
+        {
+            command.Id = id;
+
+            var result = await _mediator.Send(command);
+
+            if (!result)
+            {
+                return BadRequest("O pagamento não pôde ser processado.");
+            }
+
+            return Accepted();
         }
     }
 }

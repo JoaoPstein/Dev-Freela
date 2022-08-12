@@ -13,7 +13,7 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task Create(User user)
+        public async Task CreateAsync(User user)
         {
             await _dbContext.AddAsync(user);
             await _dbContext.SaveChangesAsync();

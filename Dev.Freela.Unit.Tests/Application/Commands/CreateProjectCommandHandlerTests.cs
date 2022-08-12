@@ -31,7 +31,7 @@ namespace Dev.Freela.Unit.Tests.Application.Commands
             // Assert
             Assert.True(id >= 0);
 
-            _projectRepositoryMock.Verify(x => x.Create(It.IsAny<Project>()), Times.Once);
+            _projectRepositoryMock.Verify(x => x.CreateAsync(It.IsAny<Project>()), Times.Once);
         }
     }
 }

@@ -1,26 +1,34 @@
-﻿using Dev.Freela.Core.Repositories;
+﻿using Dev.Freela.Core.DTOs;
+using Dev.Freela.Core.Repositories;
+using Dev.Freela.Infrastructure.Payments;
 using MediatR;
 
 namespace Dev.Freela.Application.Commands.ProjectFinish
 {
-    public class ProjectFinishCommandHandler : IRequestHandler<ProjectFinishCommand, Unit>
+    public class ProjectFinishCommandHandler : IRequestHandler<ProjectFinishCommand, bool>
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IPaymentService _paymentService;
 
-        public ProjectFinishCommandHandler(IProjectRepository projectRepository)
+        public ProjectFinishCommandHandler(IProjectRepository projectRepository, IPaymentService paymentService)
         {
             _projectRepository = projectRepository;
+            _paymentService = paymentService;
         }
 
-        public async Task<Unit> Handle(ProjectFinishCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ProjectFinishCommand request, CancellationToken cancellationToken)
         {
-            var project = await _projectRepository.GetById(request.Id);
+            var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            project.Finish();
+            var paymentInfoDto = new PaymentInfoDTO(request.Id, request.CreditCardNumber, request.Cvv, request.ExpiresAt, request.FullName, project.TotalCost);
 
-            await _projectRepository.SaveChanges();
+            _paymentService.ProcessPayment(paymentInfoDto);
 
-            return Unit.Value;
+            project.SetPaymentPending();
+
+            await _projectRepository.SaveChangesAsync();
+
+            return true;
         }
     }
 }

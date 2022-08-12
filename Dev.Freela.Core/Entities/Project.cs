@@ -47,6 +47,12 @@ namespace Dev.Freela.Core.Entities
             }
         }
 
+        public void SetPaymentPending()
+        {
+            Status = ProjectStatusEnum.PaymentPending;
+            FinishedAt = null;
+        }
+
         public void Start()
         {
             if (Status == ProjectStatusEnum.Created)

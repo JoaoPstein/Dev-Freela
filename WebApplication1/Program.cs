@@ -1,10 +1,12 @@
-using Dev.Freela.Api.Models;
 using Dev.Freela.Application.Commands.CreateProject;
+using Dev.Freela.Application.Consumers;
 using Dev.Freela.Application.Filter;
 using Dev.Freela.Application.Validators;
 using Dev.Freela.Core.Repositories;
 using Dev.Freela.Core.Services;
 using Dev.Freela.Infrastructure.Auth;
+using Dev.Freela.Infrastructure.MessageBus;
+using Dev.Freela.Infrastructure.Payments;
 using Dev.Freela.Infrastructure.Persistence;
 using Dev.Freela.Infrastructure.Persistence.Repositories;
 using FluentValidation.AspNetCore;
@@ -62,14 +64,20 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<DevFreelaDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DevFreelaCs")));
 
+builder.Services.AddHttpClient();
+
 #region Injection Dependency
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjectCommentRepository, ProjectCommentRepository>();
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IMessageBusService, MessageBusService>();
 #endregion
+
+builder.Services.AddHostedService<PaymentApprovedConsumer>();
 
 builder.Services.AddMediatR(typeof(CreateProjectCommand));
 
@@ -94,7 +102,6 @@ builder.Services
     });
 
 #endregion
-
 
 var app = builder.Build();
 
