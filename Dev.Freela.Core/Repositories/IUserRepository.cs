@@ -6,5 +6,7 @@ namespace Dev.Freela.Core.Repositories
     {
         Task CreateAsync(User user);
         Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash);
+
+        Task<User> GetByIdAsync(int id);
     }
 }

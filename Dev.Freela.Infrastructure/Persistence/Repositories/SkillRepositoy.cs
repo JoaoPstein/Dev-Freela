@@ -1,8 +1,10 @@
 ﻿using Dev.Freela.Core.DTOs;
 using Dev.Freela.Core.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Infrastructure.Persistence.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class SkillRepository : ISkillRepository
     {
         private readonly DevFreelaDbContext _dbContext;
@@ -12,16 +14,15 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<SkillDTO>> GetAllAsync()
+        public async Task<List<SkillDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
-            //var skills = _dbContext.Skills;
+            var skills = _dbContext.Skills;
 
-            //var skillsViewModel = skills
-            //    //.Select(s => new SkillViewModel(s.Id, s.Description))
-            //    .ToList();
+            var skillsViewModel = skills
+                .Select(s => new SkillDto(s.Id, s.Description))
+                .ToList();
 
-            //return skillsViewModel;
+            return skillsViewModel;
         }
     }
 }

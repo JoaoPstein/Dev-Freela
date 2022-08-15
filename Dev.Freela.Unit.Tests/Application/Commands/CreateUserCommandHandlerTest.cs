@@ -1,22 +1,20 @@
 ﻿using AutoFixture;
 using Dev.Freela.Application.Commands.CreateUsers;
+using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
 using Dev.Freela.Core.Services;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Dev.Freela.Unit.Tests.Application.Commands
 {
-    public class CreateUserCommandHandlerTests
+    public class CreateUserCommandHandlerTest
     {
         private readonly Mock<IUserRepository> _userRepositoryMock;
         private readonly Mock<IAuthService> _authServiceMock;
 
-        public CreateUserCommandHandlerTests()
+        public CreateUserCommandHandlerTest()
         {
             _userRepositoryMock = new Mock<IUserRepository>();
             _authServiceMock = new Mock<IAuthService>();
@@ -33,17 +31,17 @@ namespace Dev.Freela.Unit.Tests.Application.Commands
 
             var createUserCommand = fixture.Create<CreateUserCommand>();
 
-            _authServiceMock.Setup(x =>
-                x.ComputeSha256Hash(createUserCommand.Password)).Returns(createUserCommand.Password);
+            _authServiceMock.Setup(x => x.ComputeSha256Hash(createUserCommand.Password)).Returns("asdasdasd123441awsd1231afd");
 
             var createUserCommandHandler = new CreateUserCommandHandler(_userRepositoryMock.Object,
                 _authServiceMock.Object);
 
             // Action
-            var result = await createUserCommandHandler.Handle(createUserCommand, new CancellationToken());
+            await createUserCommandHandler.Handle(createUserCommand, new CancellationToken());
 
             // Assert
-            
+            _authServiceMock.Verify(x => x.ComputeSha256Hash(It.IsAny<string>()), Times.Once);
+            _userRepositoryMock.Verify(x => x.CreateAsync(It.IsAny<User>()), Times.Once);
         }
     }
 }

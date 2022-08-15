@@ -4,6 +4,6 @@ namespace Dev.Freela.Infrastructure.Payments
 {
     public interface IPaymentService
     {
-        void ProcessPayment(PaymentInfoDTO paymentInfoDTO);
+        void ProcessPayment(PaymentInfoDto paymentInfoDTO);
     }
 }

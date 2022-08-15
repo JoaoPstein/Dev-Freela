@@ -1,6 +1,7 @@
 ﻿using Dev.Freela.Core.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.Diagnostics.CodeAnalysis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace Dev.Freela.Infrastructure.Auth
 {
+    [ExcludeFromCodeCoverage]
     public class AuthService : IAuthService
     {
         private readonly IConfiguration _configuration;

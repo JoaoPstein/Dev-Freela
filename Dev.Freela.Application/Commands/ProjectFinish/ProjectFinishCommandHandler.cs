@@ -20,7 +20,7 @@ namespace Dev.Freela.Application.Commands.ProjectFinish
         {
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            var paymentInfoDto = new PaymentInfoDTO(request.Id, request.CreditCardNumber, request.Cvv, request.ExpiresAt, request.FullName, project.TotalCost);
+            var paymentInfoDto = new PaymentInfoDto(request.Id, request.CreditCardNumber, request.Cvv, request.ExpiresAt, request.FullName, project.TotalCost);
 
             _paymentService.ProcessPayment(paymentInfoDto);
 

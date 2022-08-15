@@ -1,8 +1,10 @@
 ﻿using Dev.Freela.Core.Services;
 using RabbitMQ.Client;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Infrastructure.MessageBus
 {
+    [ExcludeFromCodeCoverage]
     public class MessageBusService : IMessageBusService
     {
         private readonly ConnectionFactory _factory;

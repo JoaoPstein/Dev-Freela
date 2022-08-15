@@ -1,8 +1,8 @@
 ﻿namespace Dev.Freela.Core.DTOs
 {
-    public class PaymentInfoDTO
+    public class PaymentInfoDto
     {
-        public PaymentInfoDTO(int idProject, string creditCardNumber, string cvv, string expiresAt, string fullName, decimal amount)
+        public PaymentInfoDto(int idProject, string creditCardNumber, string cvv, string expiresAt, string fullName, decimal amount)
         {
             IdProject = idProject;
             CreditCardNumber = creditCardNumber;

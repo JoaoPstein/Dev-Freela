@@ -1,8 +1,10 @@
 ﻿using Dev.Freela.Application.Commands.CreateProject;
 using FluentValidation;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Application.Validators
 {
+    [ExcludeFromCodeCoverage]
     public class CreateProjectCommandValidator : AbstractValidator<CreateProjectCommand>
     {
         public CreateProjectCommandValidator()

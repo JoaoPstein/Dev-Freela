@@ -4,11 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Json;
 
 namespace Dev.Freela.Application.Consumers
 {
+    [ExcludeFromCodeCoverage]
     public class PaymentApprovedConsumer : BackgroundService
     {
         private const string PaymentApprovedQueueName = "PaymentsApproved";

@@ -1,9 +1,11 @@
 ﻿using Dev.Freela.Application.Commands.CreateUsers;
 using FluentValidation;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace Dev.Freela.Application.Validators
 {
+    [ExcludeFromCodeCoverage]
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
         public CreateUserCommandValidator()

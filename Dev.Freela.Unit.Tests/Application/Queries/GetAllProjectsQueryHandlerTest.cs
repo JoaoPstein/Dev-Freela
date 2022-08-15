@@ -6,11 +6,11 @@ using Moq;
 
 namespace Dev.Freela.Unit.Tests.Application.Queries
 {
-    public class GetAllProjectsQueryHandlerTests
+    public class GetAllProjectsQueryHandlerTest
     {
         private readonly Mock<IProjectRepository> _projectRepositoryMock;
 
-        public GetAllProjectsQueryHandlerTests()
+        public GetAllProjectsQueryHandlerTest()
         {
             _projectRepositoryMock = new Mock<IProjectRepository>();    
         }

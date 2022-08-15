@@ -6,11 +6,11 @@ using Moq;
 
 namespace Dev.Freela.Unit.Tests.Application.Commands
 {
-    public class CreateProjectCommandHandlerTests
+    public class CreateProjectCommandHandlerTest
     {
         private readonly Mock<IProjectRepository> _projectRepositoryMock;
 
-        public CreateProjectCommandHandlerTests()
+        public CreateProjectCommandHandlerTest()
         {
             _projectRepositoryMock = new Mock<IProjectRepository>();
         }

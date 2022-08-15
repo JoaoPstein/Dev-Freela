@@ -2,9 +2,9 @@
 
 namespace Dev.Freela.Application.Queries.GetUsers
 {
-    public class GetUserQuery : IRequest<UserViewModel>
+    public class GetUserByIdQuery : IRequest<UserViewModel>
     {
-        public GetUserQuery(int id)
+        public GetUserByIdQuery(int id)
         {
             Id = id;
         }

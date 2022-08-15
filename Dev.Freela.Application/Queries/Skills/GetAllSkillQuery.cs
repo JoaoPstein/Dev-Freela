@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Dev.Freela.Application.Queries.Skills
 {
-    public class GetAllSkillQuery : IRequest<List<SkillDTO>>
+    public class GetAllSkillQuery : IRequest<List<SkillDto>>
     {
     }
 }

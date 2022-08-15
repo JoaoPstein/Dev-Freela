@@ -30,14 +30,12 @@ namespace Dev.Freela.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetById(int id) 
         {
-            var query = new GetUserQuery(id);
+            var query = new GetUserByIdQuery(id);
 
             var user = await _mediator.Send(query);
 
             if (user == null)
-            {
                 return NotFound();
-            }
 
             return Ok(user);
         }

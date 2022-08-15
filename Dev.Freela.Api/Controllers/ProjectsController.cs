@@ -1,8 +1,8 @@
 ﻿using Dev.Freela.Application.Commands.CreateComment;
+using Dev.Freela.Application.Commands.CreateProject;
 using Dev.Freela.Application.Commands.DeleteProject;
 using Dev.Freela.Application.Commands.ProjectFinish;
 using Dev.Freela.Application.Commands.UpdateProject;
-using Dev.Freela.Application.InputModels.Projects;
 using Dev.Freela.Application.Queries.GetProjectById;
 using Dev.Freela.Application.Queries.Projects;
 using MediatR;

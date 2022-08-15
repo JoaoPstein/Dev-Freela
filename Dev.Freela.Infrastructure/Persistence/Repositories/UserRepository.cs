@@ -1,9 +1,11 @@
 ﻿using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Infrastructure.Persistence.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class UserRepository : IUserRepository
     {
         private readonly DevFreelaDbContext _dbContext;
@@ -22,8 +24,14 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
         public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
         {
             return await _dbContext.Users
-                .SingleOrDefaultAsync(x => x.Email == email
+                .SingleAsync(x => x.Email == email
                                      && x.Password == passwordHash);
+        }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            return await _dbContext.Users
+                .SingleAsync(x => x.Id == id);
         }
     }
 }

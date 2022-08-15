@@ -3,11 +3,11 @@ using MediatR;
 
 namespace Dev.Freela.Application.Commands.UpdateProject
 {
-    public class UpdateProjectHandler : IRequestHandler<UpdateProjectCommand, Unit>
+    public class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
 
-        public UpdateProjectHandler(IProjectRepository projectRepository)
+        public UpdateProjectCommandHandler(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
         }

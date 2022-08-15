@@ -1,10 +1,12 @@
 ﻿using Dev.Freela.Core.DTOs;
 using Dev.Freela.Core.Services;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Json;
 
 namespace Dev.Freela.Infrastructure.Payments
 {
+    [ExcludeFromCodeCoverage]
     public class PaymentService : IPaymentService
     {
         private readonly IMessageBusService _messageBusService;
@@ -15,7 +17,7 @@ namespace Dev.Freela.Infrastructure.Payments
             _messageBusService = messageBusService;
         }
 
-        public void ProcessPayment(PaymentInfoDTO paymentInfoDTO)
+        public void ProcessPayment(PaymentInfoDto paymentInfoDTO)
         {
             var paymentsInfoJson = JsonSerializer.Serialize(paymentInfoDTO);
 

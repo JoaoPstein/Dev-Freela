@@ -1,9 +1,11 @@
 ﻿using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Dev.Freela.Infrastructure.Persistence.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class ProjectRepository : IProjectRepository
     {
         private readonly DevFreelaDbContext _devFreelaDbContext;
@@ -22,7 +24,7 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
             return await _devFreelaDbContext.Projects
               .Include(x => x.Client)
               .Include(x => x.Freelancer)
-              .SingleOrDefaultAsync(x => x.Id == id);
+              .SingleAsync(x => x.Id == id);
         }
 
         public async Task CreateAsync(Project project)
@@ -34,6 +36,9 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
         public async Task DeleteAsync(int id)
         {
             var project = _devFreelaDbContext.Projects.SingleOrDefault(x => x.Id == id);
+
+            if(project is null)
+                return;
 
             project.Cancell();
             await _devFreelaDbContext.SaveChangesAsync();
