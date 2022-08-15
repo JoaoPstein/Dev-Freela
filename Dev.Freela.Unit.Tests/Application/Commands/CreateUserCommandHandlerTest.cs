@@ -4,8 +4,6 @@ using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
 using Dev.Freela.Core.Services;
 using Moq;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Dev.Freela.Unit.Tests.Application.Commands
 {

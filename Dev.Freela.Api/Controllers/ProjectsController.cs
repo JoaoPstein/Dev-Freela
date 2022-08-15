@@ -23,7 +23,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "client, freelancer")]   
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> Get(string query)
         {
             var getAllProject = new GetAllProjectsQuery(query);
@@ -49,7 +49,7 @@ namespace Dev.Freela.Api.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Client")]
-        public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateProjectCommand command)
         {
             var id = await _mediator.Send(command);
 
@@ -58,7 +58,7 @@ namespace Dev.Freela.Api.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Client")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand updateProject)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateProjectCommand updateProject)
         {
             if (updateProject is null)
                 return BadRequest();
@@ -98,9 +98,7 @@ namespace Dev.Freela.Api.Controllers
             var result = await _mediator.Send(command);
 
             if (!result)
-            {
                 return BadRequest("O pagamento não pôde ser processado.");
-            }
 
             return Accepted();
         }

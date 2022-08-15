@@ -37,7 +37,7 @@ namespace Dev.Freela.Infrastructure.Persistence.Repositories
         {
             var project = _devFreelaDbContext.Projects.SingleOrDefault(x => x.Id == id);
 
-            if(project is null)
+            if (project is null)
                 return;
 
             project.Cancell();

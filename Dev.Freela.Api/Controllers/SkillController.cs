@@ -10,7 +10,7 @@ namespace Dev.Freela.Api.Controllers
 
         public SkillController(IMediator mediator)
         {
-            _mediator = mediator; 
+            _mediator = mediator;
         }
 
         [HttpGet]

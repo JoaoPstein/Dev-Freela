@@ -12,7 +12,7 @@ namespace Dev.Freela.Application.Commands.CreateUsers
 
         public CreateUserCommandHandler(IUserRepository userRepository, IAuthService authService)
         {
-            _userRepository = userRepository;   
+            _userRepository = userRepository;
             _authService = authService;
         }
 

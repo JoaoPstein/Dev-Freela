@@ -28,7 +28,7 @@ namespace Dev.Freela.Unit.Tests.Application.Commands
             await deleteCommentProject.Handle(deleteProjectCommand, new CancellationToken());
 
             // Assert
-            _projectRepositoryMock.Verify(x => x.DeleteAsync(It.IsAny<int>()), Times.Once); 
+            _projectRepositoryMock.Verify(x => x.DeleteAsync(It.IsAny<int>()), Times.Once);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Dev.Freela.Unit.Tests.Application.Queries
 
         public GetAllProjectsQueryHandlerTest()
         {
-            _projectRepositoryMock = new Mock<IProjectRepository>();    
+            _projectRepositoryMock = new Mock<IProjectRepository>();
         }
 
         [Fact]

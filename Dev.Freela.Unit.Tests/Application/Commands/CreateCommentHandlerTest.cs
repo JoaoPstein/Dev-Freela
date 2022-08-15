@@ -12,7 +12,7 @@ namespace Dev.Freela.Unit.Tests.Application.Commands
 
         public CreateCommentHandlerTest()
         {
-            _projectCommentMock = new Mock<IProjectCommentRepository>();    
+            _projectCommentMock = new Mock<IProjectCommentRepository>();
         }
 
         [Fact]

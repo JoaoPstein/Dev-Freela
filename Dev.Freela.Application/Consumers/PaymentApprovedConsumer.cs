@@ -48,7 +48,7 @@ namespace Dev.Freela.Application.Consumers
                 var paymentApprovedBytes = eventArgs.Body.ToArray();
                 var paymentApprovedJson = Encoding.UTF8.GetString(paymentApprovedBytes);
 
-                var paymentApprovedIntegrationEvent = 
+                var paymentApprovedIntegrationEvent =
                     JsonSerializer.Deserialize<PaymentApprovedIntegrationEvent>(paymentApprovedJson);
 
                 await FinishProject(paymentApprovedIntegrationEvent.ProjectId);

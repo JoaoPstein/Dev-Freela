@@ -6,11 +6,11 @@ namespace Dev.Freela.Application.Commands.CreateProject
 {
     public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {
-        private readonly IProjectRepository _projectRepository; 
+        private readonly IProjectRepository _projectRepository;
 
         public CreateProjectCommandHandler(IProjectRepository projectRepository)
         {
-            _projectRepository = projectRepository; 
+            _projectRepository = projectRepository;
         }
 
         public async Task<int> Handle(CreateProjectCommand request, CancellationToken cancellationToken)

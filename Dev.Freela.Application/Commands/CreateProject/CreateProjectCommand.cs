@@ -2,7 +2,7 @@
 
 namespace Dev.Freela.Application.Commands.CreateProject
 {
-    public class CreateProjectCommand : IRequest<int> 
+    public class CreateProjectCommand : IRequest<int>
     {
         public string? Title { get; set; }
         public string? Description { get; set; }

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Dev.Freela.Application.Commands.ProjectStart
 {
-    public class ProjectStartCommandHandler : IRequestHandler<ProjectStartCommand,Unit>
+    public class ProjectStartCommandHandler : IRequestHandler<ProjectStartCommand, Unit>
     {
         private readonly IProjectRepository _projectRepository;
 

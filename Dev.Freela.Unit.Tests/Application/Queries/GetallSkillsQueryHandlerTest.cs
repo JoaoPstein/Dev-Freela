@@ -1,14 +1,8 @@
 ﻿using AutoFixture;
 using Dev.Freela.Application.Queries.Skills;
 using Dev.Freela.Core.DTOs;
-using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dev.Freela.Unit.Tests.Application.Queries
 {

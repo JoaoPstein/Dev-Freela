@@ -27,6 +27,11 @@ builder.Services.AddControllers(options => options.Filters.Add(typeof(Validation
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddDbContext<DevFreelaDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DevFreelaCs")));
+
+builder.Services.AddHttpClient();
+
 #region Swagger
 
 builder.Services.AddSwaggerGen(c =>
@@ -61,11 +66,6 @@ builder.Services.AddSwaggerGen(c =>
 
 #endregion
 
-builder.Services.AddDbContext<DevFreelaDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DevFreelaCs")));
-
-builder.Services.AddHttpClient();
-
 #region Injection Dependency
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IProjectCommentRepository, ProjectCommentRepository>();
@@ -75,11 +75,10 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMessageBusService, MessageBusService>();
-#endregion
 
 builder.Services.AddHostedService<PaymentApprovedConsumer>();
-
 builder.Services.AddMediatR(typeof(CreateProjectCommand));
+#endregion
 
 #region Authentication
 

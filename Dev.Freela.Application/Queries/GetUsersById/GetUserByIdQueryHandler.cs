@@ -9,7 +9,7 @@ namespace Dev.Freela.Application.Queries.GetUsers
 
         public GetUserByIdQueryHandler(IUserRepository userRepository)
         {
-            _userRepository= userRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<UserViewModel> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)

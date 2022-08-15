@@ -20,7 +20,7 @@ namespace Dev.Freela.Api.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
         {
             var id = await _mediator.Send(command);
 
@@ -28,7 +28,7 @@ namespace Dev.Freela.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetById(int id) 
+        public async Task<IActionResult> GetById(int id)
         {
             var query = new GetUserByIdQuery(id);
 
