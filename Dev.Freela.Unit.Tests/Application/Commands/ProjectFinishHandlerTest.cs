@@ -3,7 +3,7 @@ using Dev.Freela.Application.Commands.ProjectFinish;
 using Dev.Freela.Core.DTOs;
 using Dev.Freela.Core.Entities;
 using Dev.Freela.Core.Repositories;
-using Dev.Freela.Infrastructure.Payments;
+using Dev.Freela.Core.Services;
 using Moq;
 
 namespace Dev.Freela.Unit.Tests.Application.Commands

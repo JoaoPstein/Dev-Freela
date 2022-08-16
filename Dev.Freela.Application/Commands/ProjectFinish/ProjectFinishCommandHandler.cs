@@ -1,6 +1,6 @@
 ﻿using Dev.Freela.Core.DTOs;
 using Dev.Freela.Core.Repositories;
-using Dev.Freela.Infrastructure.Payments;
+using Dev.Freela.Core.Services;
 using MediatR;
 
 namespace Dev.Freela.Application.Commands.ProjectFinish
